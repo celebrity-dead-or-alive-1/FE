@@ -9,6 +9,12 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
             switch(action.type) {
+
+                case CELEB_DATA_FETCHING :
+                    return {
+                        ...state,
+                        isFetching: true,
+                    }
                 default :
                 return state 
         } 
