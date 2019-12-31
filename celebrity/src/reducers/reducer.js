@@ -15,6 +15,14 @@ export const reducer = (state = initialState, action) => {
                         ...state,
                         isFetching: true,
                     }
+                 case CELEB_DATA_SUCCESS : 
+                    return {
+                        ...state,
+                        celebs: action.payload,
+                        isFetching: false
+                        
+                    }
+
                 default :
                 return state 
         } 
