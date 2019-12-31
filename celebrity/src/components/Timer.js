@@ -8,6 +8,7 @@ const Timer = () => {
 
   function toggle() {
     setIsActive(!isActive);
+    //setIsActive(false);
   }
 
   function reset() {
@@ -20,9 +21,10 @@ const Timer = () => {
     if (isActive) {
       interval = setInterval(() => {
         setSeconds(seconds => seconds - 1);
-      }, 2000);
-    } else if (!isActive && seconds !== 20) {
+      }, 1000);
+    } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
+      setIsActive(false);
     }
     return () => clearInterval(interval);
   }, [isActive, seconds]);

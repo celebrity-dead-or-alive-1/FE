@@ -19,7 +19,6 @@ const Login = props => {
     props.addNewNote(note);
     setNote({
       name: '',
-      email: '',
       password: ''
     });
   };
@@ -31,15 +30,6 @@ const Login = props => {
         type='text'
         name='name'
         value={note.name}
-        onChange={handleChanges}
-      />
-
-      <label htmlFor='email'>Email:</label>
-      <input
-        id='email'
-        type='text'
-        name='email'
-        value={note.email}
         onChange={handleChanges}
       />
 
