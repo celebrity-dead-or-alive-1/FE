@@ -13,7 +13,7 @@ const onChange = (e) => {
 
  const submitScore = (e) => {
      e.preventDefault();
-     axiosWithAuth().get(`/scores/${props.match.params.id}`)
+     axiosWithAuth().get(`/users/score/1`)
      .then(res => {
          console.log(res)
      })

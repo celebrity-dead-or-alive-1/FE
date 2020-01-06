@@ -27,7 +27,9 @@ const Admin = props => {
             {props.isFetching ? <h1>Loading Data....</h1>: null}
             {props.celebs.map(celeb => (
                 <div>
+               <NavLink to ={`/Admin/AdminIndividual/${celeb.id}`}>     
              <img src={celeb.image_url} /> 
+             </NavLink>
             <h2>{celeb.celebname}</h2>
             </div>
     ))}

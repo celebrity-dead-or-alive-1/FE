@@ -23,9 +23,7 @@ function App() {
         <Route exact path='/Register' component={Register}/>
         <Route exact path='/Login' component={Login}/>
         <Route exact path='/Timer' component={Timer}/>
-        <PrivateRoute  exact path='/Scores' render ={props => {
-          return <Score {...props}/>
-        }}/>
+        <PrivateRoute  exact path='/Scores' component={Score}/>
         <Route path ='/Admin/AdminIndividual/:id' render={props => {
           return <AdminIndiv {...props}/> 
         }}
