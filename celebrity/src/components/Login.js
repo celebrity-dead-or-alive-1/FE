@@ -1,5 +1,3 @@
-//User logins to come back and play the game again
-
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { userLogin } from '../actions/actions'

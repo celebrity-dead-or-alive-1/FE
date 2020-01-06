@@ -1,52 +1,42 @@
-//Sets timer to 20's and adjust
-//for difficulty level on stretch
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { useTimer } from "react-timer-hook";
 
-const Timer = () => {
-  const [seconds, setSeconds] = useState(20);
-  const [isActive, setIsActive] = useState(false);
-
-  function toggle() {
-    setIsActive(!isActive);
-    //setIsActive(false);
-  }
-
-  function reset() {
-    setSeconds(20);
-    setIsActive(false);
-  }
-
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds(seconds => seconds - 1);
-      }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
-      setIsActive(false);
-    }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
+function MyTimer({ expiryTimestamp }) {
+  const { seconds, start, pause, resume, restart } = useTimer({
+    expiryTimestamp,
+    onExpire: () => console.warn("onExpire called")
+  });
 
   return (
-    <div className='app'>
-      <div className='time'>{seconds} seconds</div>
-      <div className='row'>
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? 'active' : 'inactive'
-          }`}
-          onClick={toggle}
-        >
-          {isActive ? 'Pause' : 'Start'}
-        </button>
-        <button className='button' onClick={reset}>
-          Reset
-        </button>
+    <div style={{ textAlign: "center" }}>
+      <h1>react-timer-hook </h1>
+      <p>Timer Demo</p>
+      <div style={{ fontSize: "100px" }}>
+        :<span>{seconds}</span>
       </div>
+      <button onClick={start}>Start</button>
+      <button onClick={pause}>Pause</button>
+      <button onClick={resume}>Resume</button>
+      <button
+        onClick={() => {
+          // Restarts to 5 minutes timer
+          var t = new Date();
+          t.setSeconds(t.getSeconds() + 21);
+          restart(t);
+        }}
+      >
+        restart
+      </button>
     </div>
   );
-};
+}
 
-export default Timer;
+export default function App() {
+  let timeLeft = new Date();
+  timeLeft.setSeconds(timeLeft.getSeconds() + 21); // 10 minutes timer
+  return (
+    <div>
+      <MyTimer expiryTimestamp={timeLeft} />
+    </div>
+  );
+}
