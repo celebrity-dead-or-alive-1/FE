@@ -1,24 +1,36 @@
 //User logins to come back and play the game again
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Login = props => {
-  const [note, setNote] = useState({
-    name: '',
-    email: '',
+  const [form, setForm] = useState({
+    username: '',
     password: ''
   });
 
   const handleChanges = e => {
-    setNote({ ...note, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
     console.log(e.target.value);
   };
 
+  useEffect(() => {
+    axios
+      .get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb/')
+      .then(response => {
+        setForm(response.data);
+        console.log(response);
+      })
+      .catch(error => {
+        console.log('The data was not returned', error);
+      });
+  }, []);
+
   const submitForm = e => {
     e.preventDefault();
-    props.addNewNote(note);
-    setNote({
-      name: '',
+    props.addNewNote(form);
+    setForm({
+      username: '',
       password: ''
     });
   };
@@ -26,10 +38,10 @@ const Login = props => {
     <form onSubmit={submitForm}>
       <label htmlFor='name'>Name:</label>
       <input
-        id='name'
+        id='username'
         type='text'
-        name='name'
-        value={note.name}
+        name='username'
+        value={form.username}
         onChange={handleChanges}
       />
 
@@ -38,7 +50,7 @@ const Login = props => {
         id='password'
         type='text'
         name='password'
-        value={note.password}
+        value={form.password}
         onChange={handleChanges}
       />
 
