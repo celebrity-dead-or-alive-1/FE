@@ -1,7 +1,7 @@
 //Aggregates {Score}
 import React,{useState}from 'react'
+import { connect } from 'react-redux'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
-
 const Score = (props) => {
 const [postScore, setPostScore] = useState({  score: '', user_id: '', time: ''})
 
@@ -22,9 +22,17 @@ const onChange = (e) => {
      })
  }
 
+ const signOut = () => {
+     localStorage.clear('token') 
+     props.history.push('/login')
+ }
+
+ console.log(props.username)
 
  return (
      <div>
+         <button type= 'submit' onClick={signOut}>Sign Out</button>
+        <h2>Hello: {props.username}, please submit your score </h2>
          <form onSubmit={submitScore}>
              {/* <input type ='number' name='id' placeholder='id' value={postScore.id} onChange={onChange}/> */}
              <input type ='text' name='score' placeholder='score' value={postScore.score} onChange={onChange}/>
@@ -37,4 +45,10 @@ const onChange = (e) => {
 
 }
 
-export default Score
+const mapStateToProps = state => (
+    {
+        username: state.username
+    }
+)
+
+export default connect(mapStateToProps, null)(Score);

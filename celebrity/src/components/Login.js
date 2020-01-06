@@ -1,7 +1,8 @@
 //User logins to come back and play the game again
 
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { connect } from 'react-redux'
+import { userLogin } from '../actions/actions'
 const Login = props => {
   const [note, setNote] = useState({
     username: '',
@@ -10,26 +11,17 @@ const Login = props => {
 
   const handleChanges = e => {
     setNote({ ...note, [e.target.name]: e.target.value });
-    console.log(e.target.value);
+    
   };
 
   const submitForm = e => {
     e.preventDefault();
-    axiosWithAuth().post('/auth/login', note)
-    .then(res => {
-      console.log(res)
-      localStorage.setItem('token', res.data.token) 
-      props.history.push('/Scores')
-    })
-    .catch(error => {
-      console.log(error)
-    })
-    // props.addNewNote(note);
-    // setNote({
-    //   name: '',
-    //   password: ''
-    // });
+    props.userLogin(note)
+    props.history.push('/Scores')
+    
   };
+
+  console.log(props.username)
   return (
     <form onSubmit={submitForm}>
       <label htmlFor='name'>Name:</label>
@@ -55,4 +47,7 @@ const Login = props => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => (
+  {username: state.username}
+)
+export default connect(mapStateToProps, {userLogin})(Login);

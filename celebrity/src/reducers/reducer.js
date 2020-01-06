@@ -1,9 +1,10 @@
-import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, CELEB_DATA_FAILURE } from '../actions/actions'
+import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, CELEB_DATA_FAILURE, LOGIN } from '../actions/actions'
 
 const initialState = {
     celebs: [],
     isFetching: false,
-    error: ''
+    error: '',
+    username: ''
 }
 
 
@@ -22,6 +23,12 @@ export const reducer = (state = initialState, action) => {
                         isFetching: false
                         
                     }
+                 case LOGIN : 
+                  return {
+                      ...state,
+                      isFetching: false,
+                      username: action.payload
+                  }
 
                 default :
                 return state 
