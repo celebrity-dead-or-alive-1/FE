@@ -1,62 +1,51 @@
-//User logins to come back and play the game again
-
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { userLogin } from '../actions/actions'
 const Login = props => {
-  const [form, setForm] = useState({
-    username: "",
-    password: ""
+  const [note, setNote] = useState({
+    username: '',
+    password: ''
   });
 
   const handleChanges = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(e.target.value);
+    setNote({ ...note, [e.target.name]: e.target.value });
+    
   };
-
-  useEffect(() => {
-    axios
-      .get("https://ogr-ft-celebdoa.herokuapp.com/api/celeb/")
-      .then(response => {
-        setForm(response.data);
-        console.log(response);
-      })
-      .catch(error => {
-        console.log("The data was not returned", error);
-      });
-  }, []);
 
   const submitForm = e => {
     e.preventDefault();
-    props.addNewNote(form);
-    setForm({
-      username: "",
-      password: ""
-    });
+    props.userLogin(note)
+    props.history.push('/Scores')
+    
   };
+
+  console.log(props.username)
   return (
     <form onSubmit={submitForm}>
-      <label htmlFor="name">Name:</label>
+      <label htmlFor='name'>Name:</label>
       <input
-        id="username"
-        type="text"
-        name="username"
-        value={form.username}
+        id='username'
+        type='text'
+        name='username'
+        value={note.username}
         onChange={handleChanges}
       />
 
-      <label htmlFor="password">Password:</label>
+      <label htmlFor='password'>Password:</label>
       <input
-        id="password"
-        type="text"
-        name="password"
-        value={form.password}
+        id='password'
+        type='password'
+        name='password'
+        value={note.password}
         onChange={handleChanges}
       />
 
-      <button type="submit">Login</button>
+      <button type='submit'>Login</button>
     </form>
   );
 };
 
-export default Login;
+const mapStateToProps = state => (
+  {username: state.username}
+)
+export default connect(mapStateToProps, {userLogin})(Login);
