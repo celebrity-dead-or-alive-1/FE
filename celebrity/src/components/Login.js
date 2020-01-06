@@ -1,11 +1,10 @@
 //User logins to come back and play the game again
 
 import React, { useState } from 'react';
-
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 const Login = props => {
   const [note, setNote] = useState({
-    name: '',
-    email: '',
+    username: '',
     password: ''
   });
 
@@ -16,27 +15,36 @@ const Login = props => {
 
   const submitForm = e => {
     e.preventDefault();
-    props.addNewNote(note);
-    setNote({
-      name: '',
-      password: ''
-    });
+    axiosWithAuth().post('/auth/login', note)
+    .then(res => {
+      console.log(res)
+      localStorage.setItem('token', res.data.token) 
+      props.history.push('/Scores')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+    // props.addNewNote(note);
+    // setNote({
+    //   name: '',
+    //   password: ''
+    // });
   };
   return (
     <form onSubmit={submitForm}>
       <label htmlFor='name'>Name:</label>
       <input
-        id='name'
+        id='username'
         type='text'
-        name='name'
-        value={note.name}
+        name='username'
+        value={note.username}
         onChange={handleChanges}
       />
 
       <label htmlFor='password'>Password:</label>
       <input
         id='password'
-        type='text'
+        type='password'
         name='password'
         value={note.password}
         onChange={handleChanges}

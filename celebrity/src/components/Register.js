@@ -29,9 +29,9 @@ const Register = props => {
   return (
       <div>
           <form onSubmit={submitRegistration}>
-              <input type ='text' name='username' value={registerForm.username} onChange={changeHandler}/>
-              <input type ='password' name='password' value={registerForm.password} onChange={changeHandler}/>
-              <input type ='email' name='email' value={registerForm.email} onChange={changeHandler}/>
+              <input type ='text' placeholder ='username' name='username' value={registerForm.username} onChange={changeHandler}/>
+              <input type ='password' placeholder ='password' name='password' value={registerForm.password} onChange={changeHandler}/>
+              <input type ='email'  placeholder ='email' name='email' value={registerForm.email} onChange={changeHandler}/>
               <button type='submit'>Sign Up</button>
           </form>
       </div>
