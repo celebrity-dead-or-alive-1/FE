@@ -3,7 +3,7 @@ import React from 'react';
 const LandingPage = () => {
   return (
     <div>
-      <h1>Hello Celebrity!!!</h1>
+      <h1>Hello Welcome To Celebrity Dead or Alive Game</h1>
     </div>
   );
 };
