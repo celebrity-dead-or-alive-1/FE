@@ -1,4 +1,4 @@
-import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, CELEB_DATA_FAILURE, LOGIN } from '../actions/actions'
+import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, CELEB_DATA_FAILURE, LOGIN, LOGIN_FETCHING } from '../actions/actions'
 
 const initialState = {
     celebs: [],
@@ -23,6 +23,12 @@ export const reducer = (state = initialState, action) => {
                         isFetching: false
                         
                     }
+
+                case LOGIN_FETCHING : 
+                return {
+                    ...state,
+                    isFetching: true 
+                }
                  case LOGIN : 
                   return {
                       ...state,
