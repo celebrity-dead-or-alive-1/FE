@@ -9,9 +9,11 @@ const LandingPage = () => {
         <h1 className='display-3'>
           Hello Welcome To Celebrity Dead or Alive Game
         </h1>
-        <h2>This is a simple celebrity factoid quiz.</h2>
+        <h2 className='landing-text'>
+          This is a simple celebrity factoid quiz.
+        </h2>
         <hr className='my-2' />
-        <p>
+        <p className='landing-text'>
           You will have 10 random questions regarding celebrities, you must
           answer if they are dead or alive. As you answer the questions points
           will accumulate. At the end you will have the opportunity to log in

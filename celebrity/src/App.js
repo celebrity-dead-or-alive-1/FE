@@ -12,7 +12,7 @@ import LandingPage from './components/LandingPage';
 import Score from './components/Score';
 import { PrivateRoute } from './components/PrivateRoutes';
 import AdminIndiv from './components/AdminIndiv';
-import Game from './components/Game';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
@@ -33,11 +33,6 @@ function App() {
           }}
         />
       </header>
-
-      <div>
-        // Route needed to show game as needed, not all the time
-        <Game />
-      </div>
     </div>
   );
 }
