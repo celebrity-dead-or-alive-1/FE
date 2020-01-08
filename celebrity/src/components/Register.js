@@ -1,8 +1,10 @@
 // User registers/signs up then login
+
 import React,{useState} from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import useForm from './useLoginForm';
 import  validateLogin  from './validateLogin'
+
 const Register = props => {
     
     const { handleChange, handleSubmit, values, errors } = useForm(submit, validateLogin)
@@ -63,4 +65,4 @@ const Register = props => {
 
 }
 
-export default Register 
+export default Register;

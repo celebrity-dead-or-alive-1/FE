@@ -5,12 +5,15 @@ import axios from 'axios'
 import Register from './components/Register';
 import { Route, NavLink } from 'react-router-dom';
 import Admin from './components/Admin';
+import Game from './components/Game';
 import Login from './components/Login';
-import MyTimer from './components/Timer';
+
 import LandingPage from './components/LandingPage';
 import Score from './components/Score';
 import { PrivateRoute } from './components/PrivateRoutes';
 import AdminIndiv from './components/AdminIndiv';
+import Game from './components/Game';
+
 function App() {
 
  useEffect(() => {
@@ -25,13 +28,12 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <NavLink to='/Admin'>Admin</NavLink>
-        <NavLink to='/Register'>Register</NavLink>
-        <NavLink to='/login'>Log In</NavLink>
+        <NavBar />
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/Admin' component={Admin} />
         <Route exact path='/Register' component={Register} />
         <Route exact path='/Login' component={Login} />
+        <Route exact path='/Game' component={Game} />
 
         <PrivateRoute exact path='/Scores' component={Score} />
         <Route
@@ -40,8 +42,12 @@ function App() {
             return <AdminIndiv {...props} />;
           }}
         />
-        <MyTimer />
       </header>
+
+      <div>
+        // Route needed to show game as needed, not all the time
+        <Game />
+      </div>
     </div>
   );
 }

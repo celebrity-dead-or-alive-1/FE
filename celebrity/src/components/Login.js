@@ -15,12 +15,6 @@ const Login = props => {
 
  }
 
-
- 
-
- 
-
-  // console.log(props.username)
   return (
     <>
      <form onSubmit={handleSubmit}>
@@ -51,12 +45,5 @@ const Login = props => {
 
   );
 };
-
-// const mapStateToProps = state => (
-//   {
-//     username: state.username, 
-//     isFetching: state.isFetching
-  
-//   }
 
 export default connect(null, {userLogin})(Login);
