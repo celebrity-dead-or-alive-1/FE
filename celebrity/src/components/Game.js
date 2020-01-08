@@ -11,7 +11,7 @@ import { Container } from 'reactstrap';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Game = () => {
+const GameStart = () => {
   const [celeb, setCeleb] = useState([]);
   useEffect(() => {
     const getCeleb = () => {
@@ -47,5 +47,22 @@ const Game = () => {
     </div>
   );
 };
+export default GameStart;
 
-export default Game;
+export default function Game() {
+    let buttonValue;
+    console.log("Button Value: " + buttonValue);
+
+    return (
+        <div>
+            <CelebCard args={info} />
+            <div className="buttonDiv">
+                <Button value="false" text="Dead" check={info.alive} onClick={event => buttonValue = this.value} />
+                <Button value="true" text="Alive" check={info.alive} onClick={event => buttonValue = this.value}/>
+            </div>
+            
+        </div>
+    );
+}
+
+

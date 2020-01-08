@@ -1,15 +1,17 @@
 //Two buttons maps answers rendering 0 or 1
-// import React from "react";
+// basic buttons...figure out *where* the logic lives for the red or green and okay button.
 
-// ​export default function Button({set}) {
-//         return (
-//             <button value={set}>{set}</button>
-//         );
-// }
-import React from 'react';
+import React from "react";
 
-const Button = () => {
-  return <div>This is a button</div>;
-};
+export default function Button(set) {
+    console.log("Alive? " + set.check);
+    // if (set.value === "true" && set.check === 1) {
 
-export default Button;
+    // }
+
+        return (
+            <button className="mainButton" 
+                value={set.value}>{set.text}</button>
+        );
+}
+
