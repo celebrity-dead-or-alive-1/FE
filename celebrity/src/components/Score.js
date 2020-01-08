@@ -1,28 +1,14 @@
 //Aggregates {Score}
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-const Score = props => {
-  const [postScore, setPostScore] = useState({
-    score: '',
-    user_id: '',
-    time: ''
-  });
+import React,{useState}from 'react'
+import { connect } from 'react-redux'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+const Score = (props) => {
+    const token = localStorage.getItem("token")
+const [postScore, setPostScore] = useState({  score: Number, user_id: Number, time: Number, token: token})
+
 
   const onChange = e => {
     setPostScore({ ...postScore, [e.target.name]: e.target.value });
-  };
-
-  const submitScore = e => {
-    e.preventDefault();
-    axiosWithAuth()
-      .get(`/users/score/1`)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
   };
 
   const signOut = () => {
@@ -30,7 +16,18 @@ const Score = props => {
     props.history.push('/login');
   };
 
-  console.log(props.username);
+ const submitScore = (e) => {
+     e.preventDefault();
+     console.log(postScore)
+     axiosWithAuth().post(`/users/scores`, postScore)
+     .then(res => {
+         console.log(res)
+     })
+     .catch(error => {
+         console.log(error)
+     })
+ }
+
 
   return (
     <div>
@@ -67,8 +64,32 @@ const Score = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  username: state.username
-});
+
+ console.log(props.userState)
+
+console.log(token)
+ return (
+     <div>
+         <button type= 'submit' onClick={signOut}>Sign Out</button>
+        <h2>Hello: {props.userState.username}, please submit your score </h2>
+         <form onSubmit={submitScore}>
+             {/* <input type ='number' name='id' placeholder='id' value={postScore.id} onChange={onChange}/> */}
+             <input type ='number' name='score' placeholder='score' value={postScore.score} onChange={onChange}/>
+             <input type ='number' name='user_id' placeholder='user id' value={postScore.user_id} onChange={onChange}/> 
+             <input type ='number' name='time' placeholder='time' value={postScore.time} onChange={onChange}/>
+             <button>Submit Score</button>
+         </form>
+     </div>
+ )
+
+}
+
+const mapStateToProps = state => (
+
+    {
+      userState: state.userState
+    }
+   
+)
 
 export default connect(mapStateToProps, null)(Score);

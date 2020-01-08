@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { userLogin } from '../actions/actions';
+import { connect } from 'react-redux'
+import { userLogin } from '../actions/actions'
+import useForm from './useLoginForm';
+import  validateLogin  from './validateLogin'
+
 const Login = props => {
-  const [note, setNote] = useState({
-    username: '',
-    password: ''
-  });
+  
+  const { handleChange, handleSubmit, values, errors } = useForm(submit, validateLogin)
 
-  const handleChanges = e => {
-    setNote({ ...note, [e.target.name]: e.target.value });
-  };
 
-  const submitForm = e => {
-    e.preventDefault();
-    props.userLogin(note);
-    props.history.push('/Scores');
-  };
-  // Conduct FORM VALIDATION
+ function submit() {
+   console.log('Submitted Succesfully')
+  props.userLogin(values)
 
-  console.log(props.username);
+ }
+
   return (
-    <form onSubmit={submitForm}>
+    <>
+     <form onSubmit={handleSubmit}>
       <label htmlFor='name'>Name:</label>
       <input
         id='username'
         type='text'
         name='username'
-        value={note.username}
-        onChange={handleChanges}
+        className={`${errors.username && "inputError"}`}
+        value={values.username}
+        onChange={handleChange}
       />
-
+       {errors.username && <p className="error">{errors.username}
+       </p>}
       <label htmlFor='password'>Password:</label>
       <input
         id='password'
         type='password'
         name='password'
-        value={note.password}
-        onChange={handleChanges}
+        className={`${errors.password && "inputError"}`}
+        value={values.password}
+        onChange={handleChange}
       />
-
+     {errors.password && <p className="error">{errors.password}</p>}
       <button type='submit'>Login</button>
-    </form>
+    </form> 
+    </>
+
   );
 };
 
-const mapStateToProps = state => ({ username: state.username });
-export default connect(mapStateToProps, { userLogin })(Login);
+export default connect(null, {userLogin})(Login);

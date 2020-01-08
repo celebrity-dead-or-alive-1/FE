@@ -68,6 +68,15 @@ code {
     monospace;
 }
 
+.error {
+  color: red;
+  font-size: 10px;
+}
+
+.inputError {
+  border-color: red;
+}
+
 .App {
   text-align: center;
 }
@@ -160,9 +169,3 @@ h4 {
     width: 90%;
   }
 }
-
-
-
-
-
-
