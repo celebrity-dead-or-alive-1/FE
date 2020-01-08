@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     <div>
-      <Jumbotron>
+      <Jumbotron className='jumbotron'>
         <h1 className='display-3'>
           Hello Welcome To Celebrity Dead or Alive Game
         </h1>
@@ -20,7 +20,7 @@ const LandingPage = () => {
           and register you results. Best of luck!!
         </p>
         <p className='lead'>
-          <Link to='/Game' className='btn btn-primary'>
+          <Link to='/Game' className='btn btn-primary mainButton'>
             PLAY GAME
           </Link>
         </p>
