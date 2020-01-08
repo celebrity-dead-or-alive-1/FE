@@ -35,6 +35,7 @@ function App() {
       </header>
 
       <div>
+        // Route needed to show game as needed, not all the time
         <Game />
       </div>
     </div>

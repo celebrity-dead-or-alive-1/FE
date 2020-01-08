@@ -28,7 +28,7 @@ export default function Game() {
             <CelebCard args={info} />
             <div className="buttonDiv">
                 <Button value="false" text="Dead" check={info.alive} onClick={event => buttonValue = this.value} />
-                <Button value="true" text="Alive" check={info.alive} onClick={event => buttonValue = this.bind(this, this.value)}/>
+                <Button value="true" text="Alive" check={info.alive} onClick={event => buttonValue = this.value}/>
             </div>
             
         </div>

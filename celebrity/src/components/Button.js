@@ -11,7 +11,7 @@ export default function Button(set) {
     // }
 
         return (
-            <button 
+            <button className="mainButton" 
                 value={set.value}>{set.text}</button>
         );
 }
