@@ -5,6 +5,7 @@
 //Axios call
 
 import PersonCard from './Card';
+import MyTimer from './Timer';
 import Button from './Button';
 import { Container } from 'reactstrap';
 import React, { useEffect, useState } from 'react';
@@ -30,9 +31,12 @@ const Game = () => {
 
   return (
     <div className='celeb-list'>
+      <MyTimer />
       <Container>
         {celeb.map(celeb => (
           <PersonCard
+            celeb={celeb}
+            key={celeb.id}
             image_url={celeb.image_url}
             name={celeb.celebname}
             factoid={celeb.factoid}

@@ -8,10 +8,14 @@ const PersonCard = props => {
   return (
     <Card className='card'>
       <CardBody className='card-body' key={props.id}>
-        <CardSubtitle>Name: {props.name}</CardSubtitle>
         <CardImg src={props.image_url}></CardImg>
+        <br></br> <br></br>
+        <CardSubtitle>Name: {props.name}</CardSubtitle>
+        <br></br>
         <CardSubtitle>Factoid: {props.factoid}</CardSubtitle>
+        <br></br>
         <CardSubtitle>BirthYear: {props.birthyear}</CardSubtitle>
+        <br></br>
       </CardBody>
     </Card>
   );

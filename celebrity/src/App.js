@@ -7,7 +7,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Admin from './components/Admin';
 import Game from './components/Game';
 import Login from './components/Login';
-import MyTimer from './components/Timer';
+
 import LandingPage from './components/LandingPage';
 import Score from './components/Score';
 import { PrivateRoute } from './components/PrivateRoutes';

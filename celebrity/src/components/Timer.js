@@ -1,15 +1,14 @@
 import React from 'react';
 import { useTimer } from 'react-timer-hook';
 
-function MyTimer({ expiryTimestamp }) {
+function MyTimer({ expireTimestamp }) {
   const { seconds, start, pause, resume, restart } = useTimer({
-    expiryTimestamp,
+    expireTimestamp,
     onExpire: () => console.warn('onExpire called')
   });
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1>Dead or Alive Game</h1>
       <p>Time Remaining</p>
       <div style={{ fontSize: '100px' }}>
         :<span>{seconds}</span>
@@ -36,7 +35,7 @@ export default function App() {
   timeLeft.setSeconds(timeLeft.getSeconds() + 21); // 20 second timer
   return (
     <div>
-      <MyTimer expiryTimestamp={timeLeft} />
+      <MyTimer expireTimestamp={timeLeft} />
     </div>
   );
 }
