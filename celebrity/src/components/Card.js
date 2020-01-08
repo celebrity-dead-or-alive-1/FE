@@ -1,5 +1,4 @@
 //Celebrity Image, 1 factoid
-
 import React from "react";
 
 export default function CelebCard(data) {
@@ -18,3 +17,6 @@ export default function CelebCard(data) {
     </div>
   );
 }
+//Props in Card.js
+//<Timer duration={duration} timeoutFn={checkAnswerFn(true, false)} />
+

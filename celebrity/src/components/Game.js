@@ -3,8 +3,6 @@
 // import Button.js
 // using end points
 //Axios call
-
-
 import React, { useCallback } from "react";
 import { Switch, Route } from 'react-router-dom';
 import CelebCard from './Card';
@@ -34,3 +32,5 @@ export default function Game() {
         </div>
     );
 }
+
+
