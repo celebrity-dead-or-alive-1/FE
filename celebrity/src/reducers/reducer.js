@@ -4,7 +4,14 @@ const initialState = {
     celebs: [],
     isFetching: false,
     error: '',
-    username: ''
+    totalScore: 0,
+    userState: {
+        username: '',
+        id : 0,
+        email: '',
+        score: 0,
+        error: ''
+        }
 }
 
 
@@ -33,7 +40,12 @@ export const reducer = (state = initialState, action) => {
                   return {
                       ...state,
                       isFetching: false,
-                      username: action.payload
+                      userState: {
+                          ...state.userState,
+                          username: action.payload.username,
+                          id: action.payload.id,
+                          email: action.payload.email
+                      }
                   }
 
                 default :

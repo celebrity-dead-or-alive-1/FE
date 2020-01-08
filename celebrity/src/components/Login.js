@@ -12,7 +12,6 @@ const Login = props => {
  function submit() {
    console.log('Submitted Succesfully')
   props.userLogin(values)
-  props.history.push('/Scores')
 
  }
 
