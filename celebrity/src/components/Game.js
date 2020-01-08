@@ -11,7 +11,7 @@ import { Container } from 'reactstrap';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const GameStart = () => {
+const Game = () => {
   const [celeb, setCeleb] = useState([]);
   useEffect(() => {
     const getCeleb = () => {
@@ -49,4 +49,4 @@ const GameStart = () => {
     </div>
   );
 };
-export default GameStart;
+export default Game;
