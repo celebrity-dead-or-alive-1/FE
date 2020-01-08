@@ -1,22 +1,25 @@
-//Celebrity Image, 1 factoid
-import React from "react";
+import { Card, CardBody, CardSubtitle, CardImg } from 'reactstrap';
 
-export default function CelebCard(data) {
-    console.log("Data: " + data);
-    console.log("Data.image_url: " + data.image_url);
-    console.log("data.args.celebname: " + data.args.celebname);
+import React, { useEffect, useState } from 'react';
+
+import axios from 'axios';
+
+const PersonCard = props => {
   return (
-    <div className="cardDiv">
-      <div>
-        <img src={data.args.image_url} alt={data.args.celebname}/>
-      </div>
-      <div>
-        <h3>{data.args.celebname}, b.{data.args.birthyear}</h3>
-        <h4>{data.args.factoid}</h4>
-      </div>
-    </div>
+    <Card className='card'>
+      <CardBody className='card-body' key={props.id}>
+        <CardImg src={props.image_url}></CardImg>
+        <br></br> <br></br>
+        <CardSubtitle>Name: {props.name}</CardSubtitle>
+        <br></br>
+        <CardSubtitle>Factoid: {props.factoid}</CardSubtitle>
+        <br></br>
+        <CardSubtitle>BirthYear: {props.birthyear}</CardSubtitle>
+        <br></br>
+      </CardBody>
+    </Card>
   );
-}
-//Props in Card.js
-//<Timer duration={duration} timeoutFn={checkAnswerFn(true, false)} />
+};
+
+export default PersonCard;
 

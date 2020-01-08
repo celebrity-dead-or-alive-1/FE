@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux'
-import { userLogin } from '../actions/actions'
+import { connect } from 'react-redux';
+import { userLogin } from '../actions/actions';
 const Login = props => {
   const [note, setNote] = useState({
     username: '',
@@ -9,17 +9,16 @@ const Login = props => {
 
   const handleChanges = e => {
     setNote({ ...note, [e.target.name]: e.target.value });
-    
   };
 
   const submitForm = e => {
     e.preventDefault();
-    props.userLogin(note)
-    props.history.push('/Scores')
-    
+    props.userLogin(note);
+    props.history.push('/Scores');
   };
+  // Conduct FORM VALIDATION
 
-  console.log(props.username)
+  console.log(props.username);
   return (
     <form onSubmit={submitForm}>
       <label htmlFor='name'>Name:</label>
@@ -45,7 +44,5 @@ const Login = props => {
   );
 };
 
-const mapStateToProps = state => (
-  {username: state.username}
-)
-export default connect(mapStateToProps, {userLogin})(Login);
+const mapStateToProps = state => ({ username: state.username });
+export default connect(mapStateToProps, { userLogin })(Login);

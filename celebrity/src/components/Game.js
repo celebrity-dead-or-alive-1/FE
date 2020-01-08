@@ -3,19 +3,51 @@
 // import Button.js
 // using end points
 //Axios call
-import React, { useCallback } from "react";
-import { Switch, Route } from 'react-router-dom';
-import CelebCard from './Card';
-import Button from './Button';
 
-const info = {
-	"id": 5,
-	"celebname": "Freddy Heineken",
-	"image_url": "https://specials-images.forbesimg.com/imageserve/5d8e22cc6de3150009a54b53/960x0.jpg",
-	"factoid": "Dutch beer brewer (Heineken).",
-	"birthyear": 1923,
-	"alive": 0
-}
+import PersonCard from './Card';
+import MyTimer from './Timer';
+import Button from './Button';
+import { Container } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const GameStart = () => {
+  const [celeb, setCeleb] = useState([]);
+  useEffect(() => {
+    const getCeleb = () => {
+      axios
+        .get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
+        .then(response => {
+          console.log(response.data);
+          setCeleb(response.data);
+        })
+        .catch(error => {
+          console.error('Server Error', error);
+        });
+    };
+
+    getCeleb();
+  }, []);
+
+  return (
+    <div className='celeb-list'>
+      <MyTimer />
+      <Container>
+        {celeb.map(celeb => (
+          <PersonCard
+            celeb={celeb}
+            key={celeb.id}
+            image_url={celeb.image_url}
+            name={celeb.celebname}
+            factoid={celeb.factoid}
+            birthyear={celeb.birthyear}
+          />
+        ))}
+      </Container>
+    </div>
+  );
+};
+export default GameStart;
 
 export default function Game() {
     let buttonValue;
