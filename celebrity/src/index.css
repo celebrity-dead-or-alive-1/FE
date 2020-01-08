@@ -1,56 +1,139 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 html {
-	box-sizing: border-box;
-	margin: 50px;
+  box-sizing: border-box;
+  margin: 50px;
 }
 
-*, *:before, *:after {
-	box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -59,8 +142,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #131418;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 code {
@@ -84,7 +166,7 @@ code {
 /* nav */
 header {
   background-color: #131418;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   flex-direction: row-reverse;
@@ -99,7 +181,7 @@ h1 {
 }
 
 a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   margin: 0 1% 0 4%;
   font-size: 1.2rem;
@@ -148,20 +230,28 @@ h4 {
 }
 
 /* buttons */
-.buttonDiv{
+.buttonDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .mainButton {
   width: 50%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #131418;
   font-family: 'Averia Sans Libre', cursive;
   font-size: 2rem;
-  margin: .5% 0;
+  margin: 0.5% 0;
   border-radius: 8px;
   line-height: 1.75;
+}
+.display-3 {
+  color: #333;
+  text-align: center;
+  margin: 0 auto;
+}
+.landing-text {
+  color: #333;
 }
 
 @media (max-width: 550px) {
@@ -169,3 +259,4 @@ h4 {
     width: 90%;
   }
 }
+

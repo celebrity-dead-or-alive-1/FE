@@ -18,7 +18,7 @@ const GameStart = () => {
       axios
         .get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
         .then(response => {
-          console.log(response.data);
+          console.log(response);
           setCeleb(response.data);
         })
         .catch(error => {
@@ -44,25 +44,9 @@ const GameStart = () => {
           />
         ))}
       </Container>
+      <Button value='false' text='Dead' check={celeb.alive} />
+      <Button value='true' text='Alive' check={celeb.alive} />
     </div>
   );
 };
 export default GameStart;
-
-export default function Game() {
-    let buttonValue;
-    console.log("Button Value: " + buttonValue);
-
-    return (
-        <div>
-            <CelebCard args={info} />
-            <div className="buttonDiv">
-                <Button value="false" text="Dead" check={info.alive} onClick={event => buttonValue = this.value} />
-                <Button value="true" text="Alive" check={info.alive} onClick={event => buttonValue = this.value}/>
-            </div>
-            
-        </div>
-    );
-}
-
-
