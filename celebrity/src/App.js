@@ -9,8 +9,10 @@ import Login from './components/Login';
 import Timer from './components/Timer';
 import LandingPage from './components/LandingPage';
 import Score from './components/Score';
-import { PrivateRoute } from './components/PrivateRoutes'
-import AdminIndiv from './components/AdminIndiv'
+import { PrivateRoute } from './components/PrivateRoutes';
+import AdminIndiv from './components/AdminIndiv';
+import Game from './components/Game';
+
 function App() {
   return (
     <div className="App">
@@ -31,6 +33,10 @@ function App() {
 
 
       </header>
+
+      <div>
+        <Game />
+      </div>
     </div>
   );
 }
