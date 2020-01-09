@@ -8,7 +8,7 @@ const initialCeleb = {
     birthyear: '',
     alive: true
 }
-const CreateCeleb = ({ updateCelebList }) => {
+const CreateCeleb = props => {
     const [celebToAdd, setCelebToAdd] = useState(initialCeleb);
 
     const handleChange = e => {
@@ -25,6 +25,7 @@ const CreateCeleb = ({ updateCelebList }) => {
         axiosWithAuth().post('/celeb', celebToAdd)
         .then(res => {
             console.log(res.data)
+            props.celebData()
         })
         .catch(err => {
             console.log(err.response)

@@ -26,7 +26,7 @@ const Admin = props => {
             <hr/>
             </div>
     ))}
-            <CreateCeleb />
+            <CreateCeleb celebData={props.celebData}/>
         </div>
     )
 }
