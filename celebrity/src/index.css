@@ -169,10 +169,10 @@ header {
   color: #ffffff;
   text-decoration: none;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto 4%;
+  align-items: space-evenly;
+  margin: 0 auto;
 }
 
 h1 {
@@ -180,11 +180,17 @@ h1 {
   font-size: 2rem;
 }
 
-a {
+.navbar {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 1% 0 4%;
-  font-size: 1.2rem;
+  margin: 0 auto 5%;
+  width: 100%;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 3%;
 }
 
 @media (max-width: 600px) {
@@ -236,22 +242,68 @@ h4 {
   align-items: center;
 }
 .mainButton {
-  width: 50%;
+  width: 24%;
   background-color: #ffffff;
   color: #131418;
   font-family: 'Averia Sans Libre', cursive;
   font-size: 2rem;
-  margin: 0.5% 0;
+  margin: 0.5% 0.5% 2%;
   border-radius: 8px;
   line-height: 1.75;
+  text-decoration: none;
+  padding: 5px;
 }
-.display-3 {
-  color: #333;
-  text-align: center;
-  margin: 0 auto;
+
+/* landing page */
+.jumbotron h1 {
+  margin-bottom: 2%;
 }
-.landing-text {
-  color: #333;
+
+.jumbotron h2 {
+  margin-bottom: 2%;
+}
+
+.jumbotron p {
+  margin: 2% 0;
+  line-height: 1.25;
+}
+
+.nobutton {
+  display: none;
+}
+.cardcorrect {
+  filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+}
+.cardincorrect {
+  filter: grayscale(100%) sepia(100%) hue-rotate(270deg);
+}
+
+.testpopup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+/*text*/
+.testpopup_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background-color: rgba(19, 20, 24, 0.8);
+  border: 2px solid white;
+}
+.popuptext {
+  color: Yellow;
+  padding-top: 25%;
 }
 
 @media (max-width: 550px) {
@@ -293,4 +345,78 @@ h4 {
   bottom: 25%;
   margin: auto;
   background: white;
+
+/* Game */
+h2 {
+  font-size: 2.5rem;
+  margin: 1%;
+}
+
+/* Admin2 Login */
+label {
+  padding: 3%;
+}
+
+input {
+  font-family: 'Averia Sans Libre', cursive;
+  margin: 1%;
+  text-align: center;
+}
+
+.login-button {
+  width: 13%;
+  background-color: #ffffff;
+  color: #131418;
+  font-family: 'Averia Sans Libre', cursive;
+  font-size: 1.15rem;
+  margin: 3% auto;
+  border-radius: 8px;
+  line-height: 1.1;
+  text-decoration: none;
+  padding: 5px;
+}
+
+/* Admin 2 */
+h1 {
+  margin: 0 auto;
+}
+
+.celeb-all-card {
+  margin: 5% auto;
+  width: 50%;
+}
+
+.celeb-all-card img {
+  width: 100%;
+}
+
+.celeb-all-card h4 {
+  line-height: 1.15;
+  padding: 1.5% 0;
+}
+
+.celeb-alive {
+  color: green;
+}
+
+.celeb-dead {
+  color: red;
+}
+
+/* Footer */
+footer {
+  margin-top: 20%;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: .75rem;
+}
+
+/* error */
+.error {
+  font-family: 'Averia Sans Libre', cursive;
+  font-size: .75rem;
+  font-weight: bold;
 }

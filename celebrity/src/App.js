@@ -1,10 +1,11 @@
 import './App.css';
-
-import React, {useEffect, useState} from 'react';
-import axios from 'axios'
+import React, { useEffect } from 'react';
+import axios from 'axios';
 import Register from './components/Register';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Admin from './components/Admin';
+import Admin2 from './components/Admin2';
+import Admin2Login from './components/Admin2Login';
 import Game from './components/Game';
 import Login from './components/Login';
 
@@ -13,30 +14,51 @@ import Score from './components/Score';
 import { PrivateRoute } from './components/PrivateRoutes';
 import AdminIndiv from './components/AdminIndiv';
 import NavBar from './components/NavBar';
+
 import CelebrityList from './components/CreateCeleb';
+import UserScore from './components/UserScore'
+import AdminAlt from './components/AdminAlt'
+import AdminIndivAlt from './components/AdminIndAlt'
 
 function App() {
-  
+ 
   return (
     <div className='App'>
       <header className='App-header'>
         <NavBar />
         <Route exact path='/' component={LandingPage} />
         <Route exact path='/Admin' component={Admin} />
+        <Route exact path='/Admin2' component={Admin2} />
+        <Route exact path='/Admin2Login' component={Admin2Login} />
         <Route exact path='/Register' component={Register} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Game' component={Game} />
-        <Route path= '/Celebs' component={CelebrityList} />
+        <Route exact path ='/AdminAlt' component={AdminAlt}/> 
 
         <PrivateRoute exact path='/Scores' component={Score} />
+        <PrivateRoute exact path='/User' component={UserScore}/> 
+        
         <Route
           path='/Admin/AdminIndividual/:id'
           render={props => {
             return <AdminIndiv {...props} />;
           }}
         />
+    
+        <Route
+          path='/AdminAlt/AdminIndividualAlt/:id'
+          render={props => {
+            return <AdminIndivAlt {...props} />;
+          }}
+        />
       </header>
+
+      <footer>
+        <Link className="footer-link" to='/Admin2Login'>Admin2 Login </Link>
+      </footer>
     </div>
+
+
   );
 }
 
