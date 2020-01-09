@@ -64,26 +64,6 @@ const [postScore, setPostScore] = useState({  score: Number, user_id: Number, ti
   );
 };
 
-
- console.log(props.userState)
-
-console.log(token)
- return (
-     <div>
-         <button type= 'submit' onClick={signOut}>Sign Out</button>
-        <h2>Hello: {props.userState.username}, please submit your score </h2>
-         <form onSubmit={submitScore}>
-             {/* <input type ='number' name='id' placeholder='id' value={postScore.id} onChange={onChange}/> */}
-             <input type ='number' name='score' placeholder='score' value={postScore.score} onChange={onChange}/>
-             <input type ='number' name='user_id' placeholder='user id' value={postScore.user_id} onChange={onChange}/> 
-             <input type ='number' name='time' placeholder='time' value={postScore.time} onChange={onChange}/>
-             <button>Submit Score</button>
-         </form>
-     </div>
- )
-
-}
-
 const mapStateToProps = state => (
 
     {
