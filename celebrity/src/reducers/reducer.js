@@ -44,7 +44,7 @@ export const reducer = (state = initialState, action) => {
                           ...state.userState,
                           username: action.payload.username,
                           id: action.payload.id,
-                          email: action.payload.email
+                          email: action.payload.email,
                       }
                   }
 
