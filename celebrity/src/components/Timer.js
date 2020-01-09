@@ -24,7 +24,7 @@ function MyTimer({ expireTimestamp }) {
           restart(t);
         }}
       >
-        restart
+        Start Timer
       </button>
     </div>
   );

@@ -10,7 +10,7 @@ const NavBar = props => {
         <Link to='/'>Home </Link>
         <Link to='/register'>Register </Link>
         <Link to='/login'>Login </Link>
-        <Link to='/Game'>Game</Link>
+        {/* <Link to='/Game'>Game</Link> */}
       </nav>
     </div>
   );

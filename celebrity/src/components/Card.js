@@ -1,19 +1,26 @@
 import { Card, CardBody, CardSubtitle, CardImg, Button } from 'reactstrap';
 
 import React, { useEffect, useState } from 'react';
-
+import { useHistory, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 const PersonCard = props => {
   const [cardState, setCardState] = useState('CelebImage');
   const [buttonState, setButtonState] = useState('');
-
+  const [displayPop, setDisplayPop] = useState(false);
   useEffect(() => {
     console.log('state changed');
-  }, [cardState, buttonState]);
+  }, [cardState, buttonState, displayPop]);
 
   const isAlive = boolean => {
     setButtonState('nobutton');
+    props.setCelebCount(props.celebCount + 1);
+    console.log(props.celebCount);
+    if (props.celebArray.length - 1 === props.celebCount) {
+      setDisplayPop(!displayPop);
+      // console.log('list of celeb');
+      return;
+    }
     if (boolean === true) {
       props.setScore(props.score + 1);
       setCardState('CelebImage cardcorrect');
@@ -24,6 +31,12 @@ const PersonCard = props => {
 
   const isDead = boolean => {
     setButtonState('nobutton');
+    props.setCelebCount(props.celebCount + 1);
+    console.log(props.celebCount);
+    if (props.celebArray.length - 1 === props.celebCount) {
+      setDisplayPop(!displayPop);
+      return;
+    }
     if (boolean === false) {
       props.setScore(props.score + 1);
       setCardState('CelebImage cardcorrect');
@@ -31,7 +44,13 @@ const PersonCard = props => {
     }
     setCardState('CelebImage cardincorrect');
   };
+  console.log(props.celebArray.length);
 
+  const { push } = useHistory();
+  const registerGame = () => {
+    push('/Register');
+  };
+  console.log(props.history);
   return (
     <Card className='card'>
       <CardBody className='card-body' key={props.id}>
@@ -53,6 +72,19 @@ const PersonCard = props => {
       >
         Alive
       </Button>
+
+      {!displayPop ? (
+        <div className='testpopup '>
+          <div className='testpopup_inner'>
+            <p className='popuptext'>
+              Congratulations You Scored: <br /> {props.score} out of{' '}
+              {props.celebArray.length - 1}
+            </p>
+            <button onClick={registerGame}>Register Score</button>
+          </div>
+        </div>
+      ) : null}
+      {/* <h2>TEST</h2> */}
     </Card>
   );
 };

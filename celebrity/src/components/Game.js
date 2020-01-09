@@ -9,6 +9,8 @@ import { CardImg } from 'reactstrap';
 const Game = () => {
   const [score, setScore] = useState(0);
   const [celeb, setCeleb] = useState([]);
+  const [celebCount, setCelebCount] = useState(0);
+  const [celebArray, setCelebArray] = useState([]);
   useEffect(() => {
     const getCeleb = () => {
       axios
@@ -16,6 +18,7 @@ const Game = () => {
         .then(response => {
           console.log(response);
           setCeleb(response.data);
+          setCelebArray(response.data);
         })
         .catch(error => {
           console.error('Server Error', error);
@@ -25,31 +28,21 @@ const Game = () => {
     getCeleb();
   }, []);
 
-  // const isAlive = boolean => {
-  //   if (boolean === true) {
-  //     setScore(score + 1);
-  //     alert('Correct');
-  //     return;
-  //   }
-  // };
+  const celebLength = celeb.length - 1;
 
-  // const isDead = boolean => {
-  //   if (boolean === false) {
-  //     setScore(score + 1);
-  //     alert('Correct');
-  //   }
-  // };
-
+  console.log(celebLength);
   return (
     <div className='celeb-list'>
       <br></br>
       <MyTimer />
       <br></br>
-      <h1>You Scored {score}</h1>
       <Container>
         {celeb.map(celeb => (
           <div>
             <PersonCard
+              celebArray={celebArray}
+              celebCount={celebCount}
+              setCelebCount={setCelebCount}
               setScore={setScore}
               score={score}
               celeb={celeb}
