@@ -1,7 +1,7 @@
-//Aggregates {Score}
 import React,{useState}from 'react'
 import { connect } from 'react-redux'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+
 const Score = (props) => {
     // const token = localStorage.getItem("token")
 const [postScore, setPostScore] = useState({  
@@ -10,16 +10,15 @@ const [postScore, setPostScore] = useState({
     "time": "", 
     })
 
-
   const onChange = e => {
     setPostScore({ ...postScore, [e.target.name]: e.target.value });
   };
-
+  
   const signOut = () => {
     localStorage.clear('token');
     props.history.push('/login');
   };
-
+  
  const submitScore = (e) => {
      e.preventDefault();
      console.log(postScore)
@@ -33,18 +32,15 @@ const [postScore, setPostScore] = useState({
      })
  }
 
-
-console.log(props.userState)
-console.log(props.userState.id)
   return (
     <div>
       <button type='submit' onClick={signOut}>
         Sign Out
       </button>
       {props.userState.id === 0 ? <h1>Loading...</h1> : 
-      
-      <div>
-<h2>Hello: {props.userState.username},  your User ID is: {props.userState.id} please submit your score </h2>
+    <div>
+    <h2>Hello: {props.userState.username},  your User ID is: {props.userState.id} please submit your score </h2>
+
       <form onSubmit={submitScore}>
         {/* <input type ='number' name='id' placeholder='id' value={postScore.id} onChange={onChange}/> */}
         <input
@@ -54,12 +50,14 @@ console.log(props.userState.id)
           value={postScore.score}
           onChange={onChange}
         />
+    
         <input
           name='user_id'
           placeholder='user id'
           value={postScore.user_id}
           onChange={onChange}
         />
+    
         <input
           type='number'
           name='time'
@@ -67,6 +65,7 @@ console.log(props.userState.id)
           value={postScore.time}
           onChange={onChange}
         />
+    
         <button>Submit Score</button>
       </form>
       </div>} 
@@ -75,16 +74,10 @@ console.log(props.userState.id)
   );
 };
 
-
- 
-
- 
 const mapStateToProps = state => (
-
     {
       userState: state.userState
     }
    
 )
-
 export default connect(mapStateToProps, null)(Score);
