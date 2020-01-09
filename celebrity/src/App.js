@@ -16,23 +16,13 @@ import NavBar from './components/NavBar';
 import CelebrityList from './components/CreateCeleb';
 
 function App() {
-  const [celebList, setCelebList] = useState([])
-
- useEffect(() => {
-   axios.get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
-   .then(res => {
-     setCelebList(res.data)
-   })
-   .catch(error => {
-     console.log(error)
-   })
- },[])
+  
   return (
     <div className='App'>
       <header className='App-header'>
         <NavBar />
         <Route exact path='/' component={LandingPage} />
-        <Route exact path='/Admin' celebList={celebList} updateCelebList={setCelebList} component={Admin} />
+        <Route exact path='/Admin' component={Admin} />
         <Route exact path='/Register' component={Register} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Game' component={Game} />

@@ -1,7 +1,7 @@
 //Lists all celebreties from backend database
 
 
-import React,{ useEffect, useState } from 'react'
+import React,{ useEffect } from 'react'
 import { connect } from 'react-redux'
 import { celebData, createCeleb } from '../actions/actions'
 import { NavLink } from 'react-router-dom'
