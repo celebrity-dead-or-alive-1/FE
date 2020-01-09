@@ -4,10 +4,8 @@ import Button from './Button';
 import { Container } from 'reactstrap';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { CardImg } from 'reactstrap';
 
 const Game = () => {
-
   const [score, setScore] = useState(0);
   const [celeb, setCeleb] = useState([]);
   const [celebCount, setCelebCount] = useState(0);
@@ -25,13 +23,10 @@ const Game = () => {
           console.error('Server Error', error);
         });
     };
-
     getCeleb();
   }, []);
 
   const celebLength = celeb.length - 1;
-
-  console.log(celebLength);
   return (
     <div className='celeb-list'>
       <br></br>
@@ -59,4 +54,5 @@ const Game = () => {
     </div>
   );
 };
+
 export default Game;
