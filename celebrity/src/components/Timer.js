@@ -13,14 +13,14 @@ function MyTimer({ expireTimestamp }) {
       <div style={{ fontSize: '100px' }}>
         :<span>{seconds}</span>
       </div>
-      <button onClick={start}>Start</button>
+      {/* <button onClick={start}>Start</button>
       <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
+      <button onClick={resume}>Resume</button> */}
       <button
         onClick={() => {
           // Restarts to 20 seconds
           let t = new Date();
-          t.setSeconds(t.getSeconds() + 21);
+          t.setSeconds(t.getSeconds() + 61);
           restart(t);
         }}
       >
@@ -32,7 +32,7 @@ function MyTimer({ expireTimestamp }) {
 
 export default function App() {
   let timeLeft = new Date();
-  timeLeft.setSeconds(timeLeft.getSeconds() + 21); // 20 second timer
+  timeLeft.setSeconds(timeLeft.getSeconds() + 61); // 20 second timer
   return (
     <div>
       <MyTimer expireTimestamp={timeLeft} />

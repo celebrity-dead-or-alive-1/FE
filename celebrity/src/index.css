@@ -150,6 +150,15 @@ code {
     monospace;
 }
 
+.error {
+  color: red;
+  font-size: 10px;
+}
+
+.inputError {
+  border-color: red;
+}
+
 .App {
   text-align: center;
 }
@@ -160,7 +169,7 @@ header {
   color: #ffffff;
   text-decoration: none;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto 4%;
@@ -236,14 +245,24 @@ h4 {
   border-radius: 8px;
   line-height: 1.75;
 }
-.display-3 {
+
+.nobutton {
+  display: none;
+}
+.cardcorrect {
+  filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
+}
+.cardincorrect {
+  filter: grayscale(100%) sepia(100%) hue-rotate(270deg);
+}
+/* .display-3 {
   color: #333;
   text-align: center;
   margin: 0 auto;
 }
 .landing-text {
   color: #333;
-}
+} */
 
 @media (max-width: 550px) {
   .mainButton {
