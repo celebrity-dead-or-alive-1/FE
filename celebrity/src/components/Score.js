@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-const Score = props => {
-  const token = localStorage.getItem('token');
-  const [postScore, setPostScore] = useState({
-    score: Number,
-    user_id: Number,
-    time: Number,
-    token: token
-  });
+import React,{useState}from 'react'
+import { connect } from 'react-redux'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+const Score = (props) => {
+    const token = localStorage.getItem("token")
+const [postScore, setPostScore] = useState({  score: Number, user_id: Number, time: Number, token: token})
+
   const onChange = e => {
     setPostScore({ ...postScore, [e.target.name]: e.target.value });
   };
@@ -16,18 +12,18 @@ const Score = props => {
     localStorage.clear('token');
     props.history.push('/login');
   };
-  const submitScore = e => {
-    e.preventDefault();
-    console.log(postScore);
-    axiosWithAuth()
-      .post(`/users/scores`, postScore)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+ const submitScore = (e) => {
+     e.preventDefault();
+     console.log(postScore)
+     axiosWithAuth().post(`/users/scores`, postScore)
+     .then(res => {
+         console.log(res)
+     })
+     .catch(error => {
+         console.log(error)
+     })
+ }
+
   return (
     <div>
       <button type='submit' onClick={signOut}>
@@ -63,7 +59,12 @@ const Score = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  userState: state.userState
-});
+ 
+ 
+const mapStateToProps = state => (
+    {
+      userState: state.userState
+    }
+   
+)
 export default connect(mapStateToProps, null)(Score);

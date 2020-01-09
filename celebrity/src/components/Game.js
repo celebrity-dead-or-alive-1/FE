@@ -7,6 +7,7 @@ import axios from 'axios';
 import { CardImg } from 'reactstrap';
 
 const Game = () => {
+
   const [score, setScore] = useState(0);
   const [celeb, setCeleb] = useState([]);
   const [celebCount, setCelebCount] = useState(0);
@@ -52,11 +53,7 @@ const Game = () => {
               factoid={celeb.factoid}
               birthyear={celeb.birthyear}
             />
-            {/* <Button value='false' text='Dead' check={celeb.alive} />
-            <Button value='true' text='Alive' check={celeb.alive} /> */}
-            {/* <button onClick={() => isDead(celeb.alive)}>Dead</button>
-            <button onClick={() => isAlive(celeb.alive)}>Alive</button> */}
-          </div>
+         </div>
         ))}
       </Container>
     </div>

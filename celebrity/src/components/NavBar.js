@@ -7,10 +7,10 @@ const NavBar = props => {
   return (
     <div className='nav cont'>
       <nav className='navbar'>
-        <Link to='/'>Home </Link>
-        <Link to='/register'>Register </Link>
-        <Link to='/login'>Login </Link>
-        {/* <Link to='/Game'>Game</Link> */}
+        <Link className="nav-link" to='/'>Home </Link>
+        <Link className="nav-link" to='/register'>Register </Link>
+        <Link className="nav-link" to='/login'>Login </Link>
+        <Link className="nav-link" to='/Game'>Game</Link>
       </nav>
     </div>
   );
