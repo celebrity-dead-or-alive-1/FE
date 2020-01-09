@@ -6,7 +6,7 @@ const Score = (props) => {
     // const token = localStorage.getItem("token")
 const [postScore, setPostScore] = useState({  
     "score": "", 
-    "user_id": props.userState.id, 
+    "user_id": "", 
     "time": "", 
     })
 
@@ -44,7 +44,7 @@ console.log(props.userState.id)
       {props.userState.id === 0 ? <h1>Loading...</h1> : 
       
       <div>
-      <h2>Hello: {props.userState.username}, please submit your score </h2>
+<h2>Hello: {props.userState.username},  your User ID is: {props.userState.id} please submit your score </h2>
       <form onSubmit={submitScore}>
         {/* <input type ='number' name='id' placeholder='id' value={postScore.id} onChange={onChange}/> */}
         <input

@@ -43,4 +43,10 @@ export const userLogin = credentials => dispatch => {
 
 export const deleteCelebAdminAlt = id => dispatch => {
 axiosWithAuth().delete(`celeb/del/${id}`)
+.then( res => {
+    history.push(`/AdminAlt`)
+})
+.catch(error => {
+    console.log(error)
+})
 }
