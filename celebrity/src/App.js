@@ -16,12 +16,11 @@ import AdminIndiv from './components/AdminIndiv';
 import NavBar from './components/NavBar';
 
 import CelebrityList from './components/CreateCeleb';
-import UserScore from './components/UserScore'
-import AdminAlt from './components/AdminAlt'
-import AdminIndivAlt from './components/AdminIndAlt'
+import UserScore from './components/UserScore';
+import AdminAlt from './components/AdminAlt';
+import AdminIndivAlt from './components/AdminIndAlt';
 
 function App() {
- 
   return (
     <div className='App'>
       <header className='App-header'>
@@ -33,18 +32,18 @@ function App() {
         <Route exact path='/Register' component={Register} />
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Game' component={Game} />
-        <Route exact path ='/AdminAlt' component={AdminAlt}/> 
+        <Route exact path='/AdminAlt' component={AdminAlt} />
 
         <PrivateRoute exact path='/Scores' component={Score} />
-        <PrivateRoute exact path='/User' component={UserScore}/> 
-        
+        <PrivateRoute exact path='/User' component={UserScore} />
+
         <Route
           path='/Admin/AdminIndividual/:id'
           render={props => {
             return <AdminIndiv {...props} />;
           }}
         />
-    
+
         <Route
           path='/AdminAlt/AdminIndividualAlt/:id'
           render={props => {
@@ -54,11 +53,17 @@ function App() {
       </header>
 
       <footer>
-        <Link className="footer-link" to='/Admin2Login'>Admin2 Login </Link>
+        <Link className='footer-link' to='/AdminAlt'>
+          Admin Page
+        </Link>
+        <Link className='footer-link' to='/Admin2Login'>
+          Admin2 Login{' '}
+        </Link>
+        <Link className='footer-link' to='/Admin'>
+          Admin Login{' '}
+        </Link>
       </footer>
     </div>
-
-
   );
 }
 

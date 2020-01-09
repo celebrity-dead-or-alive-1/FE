@@ -312,17 +312,17 @@ h4 {
   }
 }
 
-.addCelebForm{
+.addCelebForm {
   width: 25%;
   margin: 0 auto;
 }
 
-.addCelebForm_inner{
-  display:flex;
+.addCelebForm_inner {
+  display: flex;
   flex-direction: column;
 }
 
-.celebFormBtn{
+.celebFormBtn {
   padding: 4%;
 }
 
@@ -335,7 +335,7 @@ h4 {
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0,0,0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .popup_inner {
   position: absolute;
@@ -345,7 +345,7 @@ h4 {
   bottom: 25%;
   margin: auto;
   background: white;
-
+}
 /* Game */
 h2 {
   font-size: 2.5rem;
@@ -405,18 +405,26 @@ h1 {
 
 /* Footer */
 footer {
-  margin-top: 20%;
+  margin-top: 30%;
 }
 
 .footer-link {
   color: #ffffff;
   text-decoration: none;
-  font-size: .75rem;
+  font-size: 0.75rem;
+  padding: 0 4%;
 }
 
 /* error */
 .error {
   font-family: 'Averia Sans Libre', cursive;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: bold;
+}
+
+/*AdminAlt*/
+.AdminAlt {
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
