@@ -252,12 +252,12 @@ h4 {
   align-items: center;
 }
 .mainButton {
-  width: 50%;
+  width: 24%;
   background-color: #ffffff;
   color: #131418;
   font-family: 'Averia Sans Libre', cursive;
   font-size: 2rem;
-  margin: 0.5% 0;
+  margin: 0.5% 0.5% 2%;
   border-radius: 8px;
   line-height: 1.75;
   text-decoration: none;
@@ -288,3 +288,8 @@ h4 {
   }
 }
 
+/* Game */
+h2 {
+  font-size: 2.5rem;
+  margin: 1%;
+}
