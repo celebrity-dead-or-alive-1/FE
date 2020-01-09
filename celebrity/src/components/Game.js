@@ -1,18 +1,17 @@
-//Renders game component to start quiz
-//import Card.js
-// import Button.js
-// using end points
-//Axios call
-
 import PersonCard from './Card';
 import MyTimer from './Timer';
 import Button from './Button';
 import { Container } from 'reactstrap';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { CardImg } from 'reactstrap';
 
 const Game = () => {
+
+  const [score, setScore] = useState(0);
   const [celeb, setCeleb] = useState([]);
+  const [celebCount, setCelebCount] = useState(0);
+  const [celebArray, setCelebArray] = useState([]);
   useEffect(() => {
     const getCeleb = () => {
       axios
@@ -20,6 +19,7 @@ const Game = () => {
         .then(response => {
           console.log(response);
           setCeleb(response.data);
+          setCelebArray(response.data);
         })
         .catch(error => {
           console.error('Server Error', error);
@@ -29,23 +29,33 @@ const Game = () => {
     getCeleb();
   }, []);
 
+  const celebLength = celeb.length - 1;
+
+  console.log(celebLength);
   return (
     <div className='celeb-list'>
+      <br></br>
       <MyTimer />
+      <br></br>
       <Container>
         {celeb.map(celeb => (
-          <PersonCard
-            celeb={celeb}
-            key={celeb.id}
-            image_url={celeb.image_url}
-            name={celeb.celebname}
-            factoid={celeb.factoid}
-            birthyear={celeb.birthyear}
-          />
+          <div>
+            <PersonCard
+              celebArray={celebArray}
+              celebCount={celebCount}
+              setCelebCount={setCelebCount}
+              setScore={setScore}
+              score={score}
+              celeb={celeb}
+              key={celeb.id}
+              image_url={celeb.image_url}
+              name={celeb.celebname}
+              factoid={celeb.factoid}
+              birthyear={celeb.birthyear}
+            />
+         </div>
         ))}
       </Container>
-      <Button value='false' text='Dead' check={celeb.alive} />
-      <Button value='true' text='Alive' check={celeb.alive} />
     </div>
   );
 };
