@@ -23,12 +23,17 @@ const Admin2 = () => {
         <div>
             <h1>Admin Page</h1>
             { celebAll.length === 0 ? <h1>Loading...</h1> : celebAll.map(celeb => (
-                <div>
+                <div className="celeb-all-card">
                     <div>
                         <img src={celeb.image_url} alt={celebAll.celebname} />
                         <h4>Name: {celeb.celebname}</h4>
                         <h4>Factoid: {celeb.factoid}</h4>
                         <h4>Birth Year: {celeb.birthyear}</h4>
+                        <h4>
+                            {celeb.alive ? 
+                            <span className="celeb-alive">Alive</span> :
+                            <span className="celeb-dead">Dead</span>}
+                        </h4>
                     </div>
                 </div>
             ))}

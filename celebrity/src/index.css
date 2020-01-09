@@ -284,7 +284,71 @@ h2 {
   margin: 1%;
 }
 
+/* Admin2 Login */
+label {
+  padding: 3%;
+}
+
+input {
+  font-family: 'Averia Sans Libre', cursive;
+  margin: 1%;
+  text-align: center;
+}
+
+.login-button {
+  width: 13%;
+  background-color: #ffffff;
+  color: #131418;
+  font-family: 'Averia Sans Libre', cursive;
+  font-size: 1.15rem;
+  margin: 3% auto;
+  border-radius: 8px;
+  line-height: 1.1;
+  text-decoration: none;
+  padding: 5px;
+}
+
 /* Admin 2 */
 h1 {
   margin: 0 auto;
+}
+
+.celeb-all-card {
+  margin: 5% auto;
+  width: 50%;
+}
+
+.celeb-all-card img {
+  width: 100%;
+}
+
+.celeb-all-card h4 {
+  line-height: 1.15;
+  padding: 1.5% 0;
+}
+
+.celeb-alive {
+  color: green;
+}
+
+.celeb-dead {
+  color: red;
+}
+
+/* Footer */
+footer {
+  margin-top: 20%;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: .75rem;
+}
+
+/* error */
+.error {
+  font-family: 'Averia Sans Libre', cursive;
+  font-size: .75rem;
+  font-weight: bold;
 }

@@ -3,7 +3,7 @@ import './App.css';
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import Register from './components/Register';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Admin from './components/Admin';
 import Admin2 from './components/Admin2';
 import Admin2Login from './components/Admin2Login';
@@ -47,7 +47,13 @@ function App() {
           }}
         />
       </header>
+
+      <footer>
+        <Link className="footer-link" to='/Admin2Login'>Admin2 Login </Link>
+      </footer>
     </div>
+
+
   );
 }
 

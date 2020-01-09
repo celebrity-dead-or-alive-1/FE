@@ -57,7 +57,7 @@ const AdminLogin = (props) => {
                 
                 {errors.email && <p className="error">{errors.email}</p>}
                 <br></br>
-                <button type="submit">Log In</button>
+                <button className="login-button" type="submit">Log In</button>
             </form>
         </div>
     )
