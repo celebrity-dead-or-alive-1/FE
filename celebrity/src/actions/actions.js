@@ -30,7 +30,7 @@ export const userLogin = credentials => dispatch => {
      console.log(res)
      localStorage.setItem('token', res.data.token)
      history.push('/Scores')
-     dispatch({type: LOGIN, payload: {username: res.data.username, id: res.data.id, email: res.data.email}})
+     dispatch({type: LOGIN, payload: {username: res.data.username, id: res.data.id, email: res.data.email,}})
      
     
     
@@ -38,4 +38,9 @@ export const userLogin = credentials => dispatch => {
  .catch(error => {
      console.log(error)
  })
+}
+
+
+export const deleteCelebAdminAlt = id => dispatch => {
+axiosWithAuth().delete(`celeb/del/${id}`)
 }
