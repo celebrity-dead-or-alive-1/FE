@@ -4,6 +4,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 const Score = (props) => {
     const token = localStorage.getItem("token")
 const [postScore, setPostScore] = useState({  score: Number, user_id: Number, time: Number, token: token})
+
   const onChange = e => {
     setPostScore({ ...postScore, [e.target.name]: e.target.value });
   };
@@ -22,6 +23,7 @@ const [postScore, setPostScore] = useState({  score: Number, user_id: Number, ti
          console.log(error)
      })
  }
+
   return (
     <div>
       <button type='submit' onClick={signOut}>
@@ -56,6 +58,7 @@ const [postScore, setPostScore] = useState({  score: Number, user_id: Number, ti
     </div>
   );
 };
+
  
  
 const mapStateToProps = state => (

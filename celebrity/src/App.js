@@ -1,6 +1,5 @@
 import './App.css';
-
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import Register from './components/Register';
 import { Route, Link } from 'react-router-dom';
@@ -17,16 +16,17 @@ import AdminIndiv from './components/AdminIndiv';
 import NavBar from './components/NavBar';
 
 function App() {
-
- useEffect(() => {
-   axios.get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
-   .then(res => {
-     console.log(res)
-   })
-   .catch(error => {
-     console.log(error)
-   })
- },[])
+  useEffect(() => {
+    axios
+      .get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+  
   return (
     <div className='App'>
       <header className='App-header'>
