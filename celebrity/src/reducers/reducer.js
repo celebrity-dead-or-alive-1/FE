@@ -1,4 +1,4 @@
-import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, CELEB_DATA_FAILURE, LOGIN, LOGIN_FETCHING } from '../actions/actions'
+import { CELEB_DATA_FETCHING, CELEB_DATA_SUCCESS, LOGIN, LOGIN_FETCHING, CREATE_CELEB_START, CREATE_CELEB_SUCCESS, EDIT_CELEB_START, EDIT_CELEB_SUCCESS } from '../actions/actions'
 
 const initialState = {
     celebs: [],
@@ -48,6 +48,33 @@ export const reducer = (state = initialState, action) => {
                       }
                   }
 
+                case CREATE_CELEB_START:
+                    return {
+                        ...state,
+                        isFetching: true
+                    };
+                
+                case CREATE_CELEB_SUCCESS:
+                    return {
+                        ...state,
+                        isFetching: false,
+                        error: null,
+                        celebs: [...state.celebs, action.payload]
+                    };
+
+                case EDIT_CELEB_START:
+                    return {
+                        ...state,
+                        isFetching: true
+                    }
+
+                case EDIT_CELEB_SUCCESS:
+                    return{
+                        ...state,
+                        isFetching:false,
+                        error: null,
+                        celebs: [...state.celebs, action.payload]
+                    }
                 default :
                 return state 
         } 

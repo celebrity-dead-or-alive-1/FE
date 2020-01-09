@@ -14,23 +14,14 @@ import Score from './components/Score';
 import { PrivateRoute } from './components/PrivateRoutes';
 import AdminIndiv from './components/AdminIndiv';
 import NavBar from './components/NavBar';
+
+import CelebrityList from './components/CreateCeleb';
 import UserScore from './components/UserScore'
 import AdminAlt from './components/AdminAlt'
 import AdminIndivAlt from './components/AdminIndAlt'
 
 function App() {
-
-  useEffect(() => {
-    axios
-      .get('https://ogr-ft-celebdoa.herokuapp.com/api/celeb')
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-  
+ 
   return (
     <div className='App'>
       <header className='App-header'>
@@ -43,14 +34,17 @@ function App() {
         <Route exact path='/Login' component={Login} />
         <Route exact path='/Game' component={Game} />
         <Route exact path ='/AdminAlt' component={AdminAlt}/> 
+
         <PrivateRoute exact path='/Scores' component={Score} />
         <PrivateRoute exact path='/User' component={UserScore}/> 
+        
         <Route
           path='/Admin/AdminIndividual/:id'
           render={props => {
             return <AdminIndiv {...props} />;
           }}
         />
+    
         <Route
           path='/AdminAlt/AdminIndividualAlt/:id'
           render={props => {
