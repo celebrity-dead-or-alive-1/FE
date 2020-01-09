@@ -50,10 +50,13 @@ const PersonCard = props => {
   const registerGame = () => {
     push('/Register');
   };
+  const login = () => {
+    push('/Login');
+  };
   console.log(props.history);
   return (
     <Card className='card'>
-      <CardBody className='card-body' key={props.id}>
+      <CardBody className='celeb-all-card' key={props.id}>
         <CardImg className={cardState} src={props.image_url}></CardImg>
         <br></br> <br></br>
         <CardSubtitle>Name: {props.name}</CardSubtitle>
@@ -63,24 +66,32 @@ const PersonCard = props => {
         <CardSubtitle>BirthYear: {props.birthyear}</CardSubtitle>
         <br></br>
       </CardBody>
-      <Button className={buttonState} onClick={() => isDead(props.celeb.alive)}>
+      <Button
+        className='mainButton btn-1'
+        className={buttonState}
+        onClick={() => isDead(props.celeb.alive)}
+      >
         Dead
       </Button>
       <Button
+        className='mainButton btn-2 '
         className={buttonState}
         onClick={() => isAlive(props.celeb.alive)}
       >
         Alive
       </Button>
 
-      {!displayPop ? (
+      {displayPop ? (
         <div className='testpopup '>
           <div className='testpopup_inner'>
             <p className='popuptext'>
               Congratulations You Scored: <br /> {props.score} out of{' '}
               {props.celebArray.length - 1}
             </p>
-            <button onClick={registerGame}>Register Score</button>
+            <button onClick={registerGame}>
+              Register Score: {props.score}
+            </button>
+            <button onClick={login}>Login</button>
           </div>
         </div>
       ) : null}
