@@ -11,7 +11,7 @@ const NavBar = props => {
         <Link className="nav-link" to='/register'>Register </Link>
         <Link className="nav-link" to='/login'>Login </Link>
         <Link className="nav-link" to='/Game'>Game</Link>
-        <Link className="nav-link" to='/Admin2'>Admin2</Link>
+        {/* <Link className="nav-link" to='/Admin2Login'>Admin2 Login</Link> */}
       </nav>
     </div>
   );
